@@ -1,0 +1,32 @@
+// I realized that vector type is the most similar with list type in Python
+// since entry can be added by using push().
+// Thus, I decided to use vector type to figure out 
+// Fibonacci series. The code below is inspired by my own python code.
+
+
+
+
+// Function part
+
+fn fibonacci(n:usize) -> usize {
+    let mut fib = vec![0,1];     // fibonacci(0)=0 and fibonacci(1)=1
+    if (n == 0) || (n == 1) {
+        return fib[n];
+    }
+    else {
+        for i in 0..(n-1) {
+            fib.push(fib[i] + fib[i+1]);
+        }
+        return fib[n];
+    }
+}
+
+
+
+
+// Main function part
+
+fn main() {
+    let n:usize = 20;  // User can choose any number.
+    println!("Fibonacci({}) = {}", n, fibonacci(n));
+}
