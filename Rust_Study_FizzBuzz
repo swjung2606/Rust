@@ -1,0 +1,27 @@
+// Fizzbuzz function part
+fn fizzbuzz(n: u64) {
+    for i in 1..(n+1) {   // Integer number from 1 to n
+       
+        if i%3 != 0 && i%5 != 0 {
+            println!("{}", i);
+        }
+        else if i%3 == 0 && i%5 != 0 {
+            println!("Fizz")
+        }
+        else if i%3 != 0 && i%5 == 0 {
+            println!("Buzz")
+        }
+        else if i%3 == 0 && i%5 == 0 {
+            println!("FizzBuzz")
+        }
+       
+    }
+}
+
+
+
+fn main() {
+    println!("The First Problem FizzBuzz");
+    let a:u64 = 38;  // Input number by users
+    fizzbuzz(a);     // Run the fizzbuzz function.
+}
