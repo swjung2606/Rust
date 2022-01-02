@@ -1,0 +1,24 @@
+// Quadratic equation solver
+fn quadratic_solver(a:f64, b:f64, c:f64) -> Vec<f64> {
+    let det = (b*b) - 4.0*a*c;
+    
+    if det > 0.0 {
+        return vec![(-b +(det as f64).sqrt()) / (2.0*a) , (-b -(det as f64).sqrt()) / (2.0*a)];
+    }
+    
+    else if det == 0.0 {
+        return vec![-b / (2.0*a) , -b / (2.0 *a)];
+    }
+    
+    else {
+        println!("Roots are [Real, +-Imag]");
+        return vec![-b/(2.0*a), (-det as f64).sqrt() /(2.0*a)];
+    }
+    
+}
+
+
+// Main Function
+fn main() {
+    println!("{:?}",quadratic_solver(1.0,-6.0,8.0));
+}
