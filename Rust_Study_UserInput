@@ -1,0 +1,27 @@
+use std::io;
+
+fn print_labeled_measurement(value: usize, label:String) {
+    println!("The measurement is : {}, {}", value, label);
+}
+
+fn main() {
+    
+    println!("Enter a number : ");
+    let mut num = String::new();
+    io::stdin()
+        .read_line(&mut num)
+        .expect("Failed to read");
+
+    let num:usize = num
+        .trim()
+        .parse()
+        .expect("Please enter a number.");
+
+    println!("Enter a letter : ");
+    let mut letter = String::new();
+    io::stdin()
+        .read_line(&mut letter)
+        .expect("Failed to read.");    
+    
+    print_labeled_measurement(num, letter);
+}
