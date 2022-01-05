@@ -1,0 +1,52 @@
+#[derive(Debug)]
+// Like class in Python
+struct Rectangle {
+    width: u32,
+    height: u32,
+}
+
+// Like method in Python
+impl Rectangle{
+    fn area(&self) -> u32 {
+        return self.width * self.height;
+    }
+    
+    fn perimeter(&self) -> u32 {
+        return 2*(self.width + self.height);
+    }
+    
+    // If we want to use the function inside impl, put self. like this.
+    fn perimeter_times_n(&self, n:u32) -> u32 {
+        return self.perimeter()*n;
+    }
+    
+    fn can_hold(&self, other: &Rectangle) -> bool {
+        return self.width > other.width && self.height > other.height;
+    }
+}
+
+
+fn main() {
+    let rect1 = Rectangle{
+        width:10,
+        height:15,
+    };
+    
+    let rect2 = Rectangle {
+        width: 5,
+        height: 10,
+    };
+    
+    let rect3 = Rectangle {
+        width: 15,
+        height: 20,
+    };
+    
+    
+    println!("The area : {}", rect1.area());
+    println!("The perimeter : {}", rect1.perimeter());
+    println!("Perimeter times n : {}", rect1.perimeter_times_n(5));
+    println!("Can rect1 hold rect2? {}", rect1.can_hold(&rect2));
+    println!("Can rect1 hold rect3? {}", rect1.can_hold(&rect3));
+    
+}
