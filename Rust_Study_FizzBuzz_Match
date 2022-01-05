@@ -1,0 +1,38 @@
+use std::io;
+
+fn main() {
+    // Get User's number.
+    println!("Enter a number N : ");
+    let mut num = String::new();
+    io::stdin()
+        .read_line(&mut num)
+        .expect("Failed to read");
+
+    let num:usize = num
+        .trim()
+        .parse()
+        .expect("Please enter a number");
+    
+    // Generate vector x = [1,2, . . . ,N]    
+    let mut x = vec![];
+    for i in 1..num+1 {
+        x.push(i);
+    }
+    
+    // Distinguish components of vector x whether it's 3 divisible, 5 divisible, or both, neither.
+    for i in 0..num {
+        let a = vec![x[i]%3, x[i]%5];
+        match a[0] {
+            0 => match a[1] {
+                0 => println!("FizzBuzz"),
+                _ => println!("Fizz"),
+            },
+
+            _ => match a[1] {
+                0 => println!("Buzz"),
+                _ => println!("{:?}", x[i]),
+            },
+                             
+        }
+    }
+}
